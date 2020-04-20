@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - touch source1_file
+      - cd $CODEBUILD_SRC_DIR_source2
+      - touch source2_file
+
+artifacts:
+  secondary-artifacts:
+    artifact1:
+      base-directory: $CODEBUILD_SRC_DIR
+      files:
+        - source1_file
+    artifact2:
+      base-directory: $CODEBUILD_SRC_DIR_source2
+      files:
+        - source2_file
